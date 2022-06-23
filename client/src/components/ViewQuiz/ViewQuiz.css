@@ -50,7 +50,7 @@
 } 
 
 .view-quiz .body .left .comments {
-    height: 600px;
+    height: 300px;
     overflow-y: scroll;
     background-color: #d9e1f3;
     padding-bottom: 25px;
@@ -152,7 +152,7 @@
 .view-quiz .body .right .questions-wrapper {
     padding: 10px;
     overflow-y: scroll;
-    height: 600px;
+    height: 300px;
     position: relative;
 }
 

@@ -25,7 +25,7 @@ export default class Auth extends React.Component {
                     user: res.data.user,
                     token: res.data.token
                 });
-                this.props.history.push('/dashboard');
+                this.props.history.push('/account');
             } else {
                 this.setState({
                     showToast: true
@@ -63,18 +63,10 @@ export default class Auth extends React.Component {
     render() {
         let page = this.state.tab === 'signin' ? <Signin signIn={this.signIn} /> : <Signup signUp={this.signUp} />
         return (
-            <div className="auth-wrapper">
+            <div>
                 <Toast model={this.state.showToast} message="Incorrect login" backgroundColor="#FF4539" />
-                <div className="left">
-                    <img src="https://freesvg.org/img/chemist.png" />
-                </div>
-
-                <div className="right">
-                    <div className="header">Quiz itt</div>
-                    <div className="sub-header">Welcome to Quiz itt</div>
                     {page}
-                    <div className="new" onClick={this.changeTab}>{this.state.tab === 'signin' ? 'New to Quiz itt? Sign up here' : 'Already have an account with us? Sign in'}</div>
-                </div>
+                    <div className="new" style={{position:"absolute", bottom:0, left:0, cursor:"pointer", color:"#fff"}} onClick={this.changeTab}>{this.state.tab === 'signin' ? 'Accountingiz yo\'qmi? Ro\'yhatdan o\'tish' : 'Accountingiz bormi? Kirish'}</div>
             </div>
         )
     }

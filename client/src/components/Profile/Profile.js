@@ -36,7 +36,7 @@ export default class Profile extends React.Component {
         const file = e.target.files[0];
         if(!this.state.fileTypes.includes(file.type)) {
             this.setState({
-                message: 'Must be either jpg, pdf, or png'
+                message: 'Rasm formati quyidagicha bo\'lishi shart jpg, pdf, yoki png'
             })
         } else {
             this.setState({
@@ -83,7 +83,7 @@ export default class Profile extends React.Component {
                 this.getUser();
             }).catch((err) => {
                 console.log(err);
-                this.setState({showPopup: true, message: 'Something went wrong uploading image'})
+                this.setState({showPopup: true, message: 'Rasm Yuklanmadi'})
             })
     }
 
@@ -100,12 +100,12 @@ export default class Profile extends React.Component {
                         <div className="cards">
                             <div className="left">
                                 <div className="img-uploader">
-                                    <div>Upload Avatar Image</div>
+                                    <div>Profil uchun rasm yuklash</div>
                                     <div className="upload-box">
                                         <input onChange={(e) => this.handleFileInputChange(e)} type="file" />
                                         {this.state.previewSource ?
-                                            <img className="display-image" src={this.state.previewSource} />
-                                            : (this.state.user.avatar && this.state.user.avatar.url ? <img style={{borderRadius: '50%', objectFit: 'cover', margin: '20px auto 0 25px', width: '25vw', height: '25vw'}} className="display-image" src={this.state.user.avatar.url} />  : <img className="display-image" src={this.state.previewSource} /> )}
+                                            <img className="display-image" src={this.state.previewSource} alt=""/>
+                                            : (this.state.user.avatar && this.state.user.avatar.url ? <img alt="" style={{borderRadius: '50%', objectFit: 'cover', margin: '20px auto 0 25px', width: '25vw', height: '25vw'}} className="display-image" src={this.state.user.avatar.url} />  : <img alt="" className="display-image" src={this.state.previewSource} /> )}
                                     </div>
                                     <div style={{color: this.state.message === 'Success' ? 'green' : 'red', fontSize: '.8em', margin: '20px 0'}}>{ this.state.message }</div>
                                     <button className="image-btn" style={{marginTop: '20px'}} onClick={(e) => this.handleSubmitFile(e)}>Save</button>

@@ -10,7 +10,7 @@
 
      .take-quiz-wrapper .content .header {
          position: relative;
-         padding: 20px;
+         padding: 10px;
          font-size: 2em;
          box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
          display: flex;
@@ -34,8 +34,8 @@
      .take-quiz-wrapper .content .body .left {
          flex: 0.5;
          position: relative;
-         min-height: 450px;
-         height: 600px;
+         min-height: 350px;
+         height: 300px;
      }
 
      .take-quiz-wrapper .content .body .left .question-name {
@@ -57,10 +57,10 @@
      }
 
      .take-quiz-wrapper .content .body .left .question-bubble-wrapper .question-bubble {
-         border-radius: 100%;
+         border-radius: 50%;
          box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.4);
          text-align: center;
-         padding: 20px 25px;
+         padding: 10px 19px;
          margin: 0 20px;
          cursor: pointer;
          background-color: white;
@@ -78,7 +78,7 @@
 
      .take-quiz-wrapper .content .body .right .answers-wrapper .answer {
          font-size: 1.4em;
-         padding: 25px 20px;
+         padding: 15px 20px;
          margin: 30px 0;
          border-radius: 10px;
          background-color: white;
@@ -95,7 +95,7 @@
      .take-quiz-wrapper .content .body .right .answers-wrapper .selected {
          background-color: #30D158;
          font-size: 1.4em;
-         padding: 25px 20px;
+         padding: 15px 20px;
          color: white;
          margin: 30px 0;
          border-radius: 10px;
@@ -107,7 +107,7 @@
          width: 100%;
          box-shadow: 1px 1px 6px 1px rgba(0, 0, 0, 0.3);
          height: 100%;
-         padding: 40px 0;
+         padding: 20px 0;
      }
 
      .take-quiz-wrapper .content .buttons-wrapper {

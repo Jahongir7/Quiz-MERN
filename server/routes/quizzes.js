@@ -6,7 +6,7 @@ const Score = require('../models/Scores');
 
 const router = express.Router();
 
-router.post('/create', checkAuth, (req, res) => {
+router.post('/create',  (req, res) => {
     let quiz = new Quizzes({
         ...req.body.quiz,
         createdBy: req.body.createdBy,
@@ -27,7 +27,7 @@ router.post('/create', checkAuth, (req, res) => {
     })
 });
 
-router.get("/my-quizzes/:id", checkAuth, (req, res) => {
+router.get("/my-quizzes/:id",  (req, res) => {
 
     Quizzes.find({ createdBy: req.params.id })
         .then(result => {
@@ -35,14 +35,14 @@ router.get("/my-quizzes/:id", checkAuth, (req, res) => {
         })
 });
 
-router.get('/all-quizzes', checkAuth, (req, res) => {
+router.get('/all-quizzes',  (req, res) => {
     Quizzes.find()
         .then(result => {
             res.status(200).json(result);
         })
 })
 
-router.get('/get-quiz/:id', checkAuth, (req, res) => {
+router.get('/get-quiz/:id',  (req, res) => {
     Quizzes.findOne({ _id: req.params.id }).then(quiz => {
         res.status(200).json({quiz});
     }).catch(er => {
@@ -50,7 +50,7 @@ router.get('/get-quiz/:id', checkAuth, (req, res) => {
     })
 })
 
-router.post('/add-comment', checkAuth, (req, res) => {
+router.post('/add-comment',  (req, res) => {
     Quizzes.updateOne({ _id: req.body.quizId }, {
         $push: {
             comments: {
@@ -65,7 +65,7 @@ router.post('/add-comment', checkAuth, (req, res) => {
     })
 });
 
-router.post('/like-quiz', checkAuth, (req, res) => {
+router.post('/like-quiz',  (req, res) => {
     Users.findOne({_id: req.body.userId, likedQuizzes: {$in: [req.body.quizId]}}).then(async user => {
         if (!user) {
             await Users.updateOne({ _id: req.body.userId }, {
@@ -95,7 +95,7 @@ router.post('/like-quiz', checkAuth, (req, res) => {
     })
 });
 
-router.post('/save-results', checkAuth, (req, res) => {
+router.post('/save-results', (req, res) => {
     let score = new Score({
         userId: req.body.currentUser,
         answers: req.body.answers,
@@ -111,7 +111,7 @@ router.post('/save-results', checkAuth, (req, res) => {
     })
 });
 
-router.get('/results/:id', checkAuth, (req, res) => {
+router.get('/results/:id',  (req, res) => {
     if (!req.params.id) {
         res.status(500).send("No id provided in params");
     } else {

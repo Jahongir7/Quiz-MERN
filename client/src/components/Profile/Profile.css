@@ -15,7 +15,8 @@
     justify-content: space-between;
     /*align-items: center;*/
     width: 80vw;
-    margin: 90px auto 0 auto;
+    margin: 50px auto 0 auto;
+    margin-left: 50px;
 }
 
 .profile-wrapper .cards .left, .cards .right{

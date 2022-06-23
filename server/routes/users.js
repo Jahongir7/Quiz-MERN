@@ -1,6 +1,6 @@
 const express = require('express');
 const Users = require('../models/Users');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const checkAuth = require('../middleware/check-auth');
 const { cloudinary } = require('../config/cloudinary');
@@ -71,7 +71,7 @@ router.post('/register', (req, res) => {
     }
 })
 
-router.get('/:id', checkAuth, (req, res) => {
+router.get('/:id',  (req, res) => {
     Users.findOne({ _id: req.params.id }).then(user => {
         res.json({ user, success: true })
     }).catch(er => {
@@ -79,7 +79,7 @@ router.get('/:id', checkAuth, (req, res) => {
     })
 })
 
-router.post('/upload-image', checkAuth, async(req, res) => {
+router.post('/upload-image',  async(req, res) => {
     try {
         const fileStr = req.body.data;
         const uploadedResponse = await cloudinary.uploader.upload(fileStr);
